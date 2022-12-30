@@ -52,7 +52,7 @@ def draw_multiple_line_text(image, text, font, text_start_height):
 
 
 @asyncify
-def welcomepic(app:Client,pic, user, chat, count, id):
+def welcomepic(app,pic, user, chat, count, id):
     count = await pgram.get_chat_members_count(-1001698076323)
     new = int(count) + 1
      
@@ -224,7 +224,7 @@ async def save_group(bot, message):
             except AttributeError:
                 pic = "img/profilepic.png"
             welcomeimg = await welcomepic(
-                pic, u.first_name, message.chat.title, count, u.id
+                app,pic, u.first_name, message.chat.title, count, u.id
             )
             if (temp.MELCOW).get(f"welcome-{message.chat.id}") is not None:
                 try:
