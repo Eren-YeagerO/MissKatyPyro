@@ -53,7 +53,7 @@ def draw_multiple_line_text(image, text, font, text_start_height):
 
 @asyncify
 def welcomepic(app,pic, user, chat, count, id):
-    count = await pgram.get_chat_members_count(-1001698076323)
+    count = await app.get_chat_members_count(-1001698076323)
     new = int(count) + 1
      
     background = Image.open("img/bg.png")  # <- Background Image (Should be PNG)
