@@ -52,8 +52,8 @@ def draw_multiple_line_text(image, text, font, text_start_height):
 
 
 @asyncify
-def welcomepic(app,pic, user, chat, count, id):
-    count = await app.get_chat_members_count(-1001698076323)
+def welcomepic(app, message,pic, user, chat, count, id):
+    count = await app.get_chat_members_count(message.chat.id)
     new = int(count) + 1
      
     background = Image.open("img/bg.png")  # <- Background Image (Should be PNG)
@@ -224,7 +224,7 @@ async def save_group(bot, message):
             except AttributeError:
                 pic = "img/profilepic.png"
             welcomeimg = await welcomepic(
-                app,pic, u.first_name, message.chat.title, count, u.id
+                bot,message,pic, u.first_name, message.chat.title, count, u.id
             )
             if (temp.MELCOW).get(f"welcome-{message.chat.id}") is not None:
                 try:
